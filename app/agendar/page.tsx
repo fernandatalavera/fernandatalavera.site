@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useEffect, useState } from "react";
+import React, { Suspense, useEffect, useState } from "react";
 import { useSearchParams } from "next/navigation";
 import { motion } from "framer-motion";
 import { Calendar, Phone, User, Sparkles, MessageCircle } from "lucide-react";
@@ -16,7 +16,7 @@ const braidTypes = [
   { id: "twist", name: "Twist Braids", duration: "3 a 5 horas" },
 ];
 
-export default function AgendarPage() {
+function AgendarPageContent() {
   const searchParams = useSearchParams();
   const tipoParam = searchParams.get("tipo");
   const [formData, setFormData] = useState({
@@ -333,5 +333,19 @@ export default function AgendarPage() {
 
       <Footer />
     </main>
+  );
+}
+
+export default function AgendarPage() {
+  return (
+    <Suspense
+      fallback={
+        <main className="min-h-screen flex items-center justify-center">
+          <p className="text-deep-brown/70 font-mono text-sm">Carregando...</p>
+        </main>
+      }
+    >
+      <AgendarPageContent />
+    </Suspense>
   );
 }
