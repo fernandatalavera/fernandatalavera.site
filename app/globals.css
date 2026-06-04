@@ -263,6 +263,42 @@ body::-webkit-scrollbar {
   animation: marquee 20s linear infinite;
 }
 
+@keyframes marquee-reverse {
+  0% {
+    transform: translateX(-50%);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+
+/* Marquee horizontal infinito do portfólio */
+.marquee-track {
+  display: flex;
+  flex-wrap: nowrap;
+  width: max-content;
+  will-change: transform;
+}
+
+.marquee-track--ltr {
+  animation: marquee 60s linear infinite;
+}
+
+.marquee-track--rtl {
+  animation: marquee-reverse 60s linear infinite;
+}
+
+.marquee-row:hover .marquee-track {
+  animation-play-state: paused;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .marquee-track--ltr,
+  .marquee-track--rtl {
+    animation: none;
+  }
+}
+
 .noise-overlay::before {
   content: "";
   position: absolute;

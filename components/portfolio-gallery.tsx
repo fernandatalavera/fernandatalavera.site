@@ -1,7 +1,6 @@
 "use client";
 
-import { motion, useInView, type Variants } from "framer-motion";
-import { useRef } from "react";
+import { motion } from "framer-motion";
 import { Instagram } from "lucide-react";
 import Image from "next/image";
 
@@ -25,47 +24,73 @@ const portfolioImages = [
   { image: "/images/gallery/work-3.jpg", likes: "3.2k", style: "Goddess Locs" },
 ];
 
-const containerVariants: Variants = {
-  hidden: { opacity: 0 },
-  visible: {
-    opacity: 1,
-    transition: {
-      staggerChildren: 0.06,
-      delayChildren: 0.15,
-    },
-  },
-};
+const rowOne = portfolioImages.slice(0, 5);
+const rowTwo = portfolioImages.slice(4);
 
-const itemVariants: Variants = {
-  hidden: { opacity: 0, scale: 0.8, y: 20 },
-  visible: {
-    opacity: 1,
-    scale: 1,
-    y: 0,
-    transition: {
-      type: "spring",
-      stiffness: 100,
-      damping: 20,
-    },
-  },
-};
+type PortfolioItem = (typeof portfolioImages)[number];
+
+function PortfolioCard({ post }: { post: PortfolioItem }) {
+  return (
+    <div className="relative w-48 sm:w-56 aspect-square rounded-2xl overflow-hidden group cursor-pointer flex-shrink-0 border border-[#C4A77D]/10 bg-[#100c08] transition-transform duration-500 ease-out hover:scale-[1.04]">
+      <Image
+        src={post.image || "/placeholder.svg"}
+        alt={post.style}
+        fill
+        sizes="224px"
+        className="object-cover grayscale group-hover:grayscale-0 transition-all duration-500"
+      />
+      <div className="absolute inset-0 bg-[#C4A77D]/0 group-hover:bg-[#C4A77D]/20 flex flex-col items-center justify-center transition-colors duration-300">
+        <div className="flex flex-col items-center gap-1 text-white opacity-0 group-hover:opacity-100 translate-y-2 group-hover:translate-y-0 transition-all duration-300">
+          <span className="font-serif text-sm font-semibold">
+            {post.style}
+          </span>
+          <div className="flex items-center gap-1">
+            <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
+              <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z" />
+            </svg>
+            <span className="font-mono text-xs">{post.likes}</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+}
+
+function MarqueeRow({
+  items,
+  direction = "ltr",
+}: {
+  items: PortfolioItem[];
+  direction?: "ltr" | "rtl";
+}) {
+  return (
+    <div className="marquee-row relative overflow-hidden">
+      <div
+        className={`marquee-track gap-6 sm:gap-8 pr-6 sm:pr-8 ${
+          direction === "rtl" ? "marquee-track--rtl" : "marquee-track--ltr"
+        }`}
+      >
+        {[...items, ...items].map((post, index) => (
+          <PortfolioCard key={`${post.style}-${index}`} post={post} />
+        ))}
+      </div>
+    </div>
+  );
+}
 
 export function PortfolioGallery() {
-  const ref = useRef(null);
-  const isInView = useInView(ref, { once: true, margin: "-50px" });
-
   return (
     <section
       id="galeria"
       className="relative py-16 bg-[#1a1510] overflow-hidden"
     >
-      <div className="max-w-7xl mx-auto px-6">
+      <div className="max-w-7xl mx-auto px-6 mb-10">
         <motion.div
           initial={{ opacity: 0, y: 40 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.8, ease: [0.25, 0.4, 0.25, 1] }}
-          className="text-center mb-10"
+          className="text-center"
         >
           <motion.span
             className="font-mono text-[#C4A77D] text-xs tracking-widest inline-block"
@@ -83,63 +108,22 @@ export function PortfolioGallery() {
             </span>
           </h2>
         </motion.div>
+      </div>
 
-        <motion.div
-          ref={ref}
-          className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8 items-start"
-          variants={containerVariants}
-          initial="hidden"
-          animate={isInView ? "visible" : "hidden"}
-        >
-          {portfolioImages.map((post, index) => (
-            <motion.div
-              key={index}
-              variants={itemVariants}
-              whileHover={{
-                scale: 1.05,
-                zIndex: 10,
-                transition: { type: "spring", stiffness: 300, damping: 20 },
-              }}
-              className="relative aspect-square rounded-xl overflow-hidden group cursor-pointer w-full"
-            >
-              <Image
-                src={post.image || "/placeholder.svg"}
-                alt={post.style}
-                fill
-                className="object-cover grayscale group-hover:grayscale-0 transition-all duration-500"
-              />
-              <motion.div
-                className="absolute inset-0 bg-[#C4A77D]/0 group-hover:bg-[#C4A77D]/20 flex flex-col items-center justify-center"
-                initial={{ opacity: 0 }}
-                whileHover={{ opacity: 1 }}
-                transition={{ duration: 0.3 }}
-              >
-                <motion.div
-                  className="flex flex-col items-center gap-1 text-white opacity-0 group-hover:opacity-100 transition-opacity duration-300"
-                  initial={{ y: 10 }}
-                  whileHover={{ y: 0 }}
-                >
-                  <span className="font-serif text-sm font-semibold">
-                    {post.style}
-                  </span>
-                  <div className="flex items-center gap-1">
-                    <svg
-                      className="w-4 h-4"
-                      fill="currentColor"
-                      viewBox="0 0 24 24"
-                    >
-                      <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z" />
-                    </svg>
-                    <span className="font-mono text-xs">{post.likes}</span>
-                  </div>
-                </motion.div>
-              </motion.div>
-            </motion.div>
-          ))}
-        </motion.div>
+      <div className="relative">
+        <div className="flex flex-col gap-6 sm:gap-8">
+          <MarqueeRow items={rowOne} direction="ltr" />
+          <MarqueeRow items={rowTwo} direction="rtl" />
+        </div>
 
+        {/* Fades laterais para o loop sem cortes percept\u00edveis */}
+        <div className="pointer-events-none absolute inset-y-0 left-0 w-16 sm:w-32 bg-gradient-to-r from-[#1a1510] to-transparent" />
+        <div className="pointer-events-none absolute inset-y-0 right-0 w-16 sm:w-32 bg-gradient-to-l from-[#1a1510] to-transparent" />
+      </div>
+
+      <div className="max-w-7xl mx-auto px-6">
         <motion.div
-          className="flex justify-center mt-8"
+          className="flex justify-center mt-10"
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
