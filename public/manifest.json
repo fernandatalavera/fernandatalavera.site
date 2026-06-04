@@ -1,0 +1,21 @@
+{
+  "name": "Fernanda Talavera — Tranças",
+  "short_name": "Talavera",
+  "description": "Especialista em tranças — agende seu horário.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#F7EFE6",
+  "theme_color": "#B47850",
+  "icons": [
+    {
+      "src": "/images/hero-braids.jpg",
+      "sizes": "192x192",
+      "type": "image/jpeg"
+    },
+    {
+      "src": "/images/hero-braids.jpg",
+      "sizes": "512x512",
+      "type": "image/jpeg"
+    }
+  ]
+}
