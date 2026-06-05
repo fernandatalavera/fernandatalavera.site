@@ -95,6 +95,7 @@ function AgendarPageContent() {
       `Queria agendar um horário para fazer uma ${braidName}.`,
       `Meu nome é ${formData.nome} e meu telefone é ${formData.telefone}.`,
       `Você tem disponibilidade para ${formattedDate}?`,
+      "\n",
       "Aguardo seu retorno.",
     ].join(" ");
 

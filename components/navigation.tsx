@@ -47,14 +47,13 @@ export function Navigation() {
     >
       <div className="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
         <Link href="/" className="flex items-center gap-2">
-          <motion.span
-            className="text-2xl font-bold tracking-tight"
+          <motion.img
+            src="/logo.svg"
+            alt="Fernanda Talavera"
+            className="h-14 w-auto md:h-16"
             whileHover={{ scale: 1.05 }}
             transition={{ type: "spring", stiffness: 400, damping: 17 }}
-          >
-            <span className="text-deep-brown">Fernanda </span>
-            <motion.span className="text-terracotta">Talavera</motion.span>
-          </motion.span>
+          />
         </Link>
 
         <div className="hidden md:flex items-center gap-8">

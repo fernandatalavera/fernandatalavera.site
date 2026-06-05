@@ -91,10 +91,11 @@ export function Footer() {
             whileHover={{ scale: 1.05 }}
             transition={{ type: "spring", stiffness: 400, damping: 17 }}
           >
-            <span className="text-xl font-bold">
-              <span className="text-cream">Fernanda</span>
-              <span className="text-terracotta"> Talavera</span>
-            </span>
+            <img
+              src="/logo.svg"
+              alt="Fernanda Talavera"
+              className="h-16 w-auto brightness-0 invert"
+            />
           </motion.div>
 
           <p className="text-cream/40 font-mono text-xs">

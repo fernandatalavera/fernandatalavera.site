@@ -48,7 +48,7 @@ export default function RootLayout({
       <head>
         <link rel="manifest" href="/manifest.json" />
         <meta name="theme-color" content="#B47850" />
-        <link rel="apple-touch-icon" href="/images/hero-braids.jpg" />
+        <link rel="apple-touch-icon" href="/logo.svg" />
       </head>
       <body className={`font-serif antialiased`}>
         <RegisterSW />

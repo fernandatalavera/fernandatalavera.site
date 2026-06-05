@@ -1,5 +1,5 @@
 const CACHE_NAME = "tranças-static-v1";
-const PRECACHE_URLS = ["/", "/manifest.json", "/images/hero-braids.jpg"];
+const PRECACHE_URLS = ["/", "/manifest.json", "/logo.svg"];
 
 self.addEventListener("install", (event) => {
   event.waitUntil(
