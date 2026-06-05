@@ -9,7 +9,7 @@ import { Footer } from "@/components/footer";
 
 const braidTypes = [
   { id: "box-braids", name: "Box Braids", duration: "5 a 7 horas" },
-  { id: "nago", name: "Nagô (Cornrows)", duration: "2 a 4 horas" },
+  { id: "nago", name: "Nagô", duration: "2 a 4 horas" },
   { id: "goddess", name: "Goddess Braids", duration: "6 horas" },
   { id: "knotless", name: "Knotless Braids", duration: "6 a 8 horas" },
   { id: "fulani", name: "Fulani Braids", duration: "4 a 6 horas" },

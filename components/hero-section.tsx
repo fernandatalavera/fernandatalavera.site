@@ -1,12 +1,18 @@
 "use client";
 
-import { motion, useScroll, useTransform, useSpring } from "framer-motion";
+import {
+  motion,
+  useScroll,
+  useTransform,
+  useSpring,
+  type Variants,
+} from "framer-motion";
 import { useRef } from "react";
 import Image from "next/image";
 
 const springConfig = { stiffness: 100, damping: 30, restDelta: 0.001 };
 
-const fadeUpVariants = {
+const fadeUpVariants: Variants = {
   hidden: { opacity: 0, y: 40 },
   visible: (i: number) => ({
     opacity: 1,
@@ -14,12 +20,12 @@ const fadeUpVariants = {
     transition: {
       delay: i * 0.1,
       duration: 0.8,
-      ease: [0.25, 0.4, 0.25, 1],
+      ease: [0.25, 0.4, 0.25, 1] as const,
     },
   }),
 };
 
-const scaleInVariants = {
+const scaleInVariants: Variants = {
   hidden: { opacity: 0, scale: 0.9 },
   visible: {
     opacity: 1,

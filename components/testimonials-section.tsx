@@ -1,33 +1,33 @@
 "use client";
 
-import { motion } from "framer-motion";
+import { motion, type Variants } from "framer-motion";
 import { Star } from "lucide-react";
 
 const testimonials = [
   {
     id: 1,
-    name: "Mariana Silva",
-    text: "A Fernanda Talavera é simplesmente incrível! Fiz box braids pela primeira vez e o resultado superou todas as minhas expectativas. Atendimento super cuidadoso e o ambiente é muito acolhedor.",
+    name: "Isabella Vitorino",
+    text: "A Fernanda é simplesmente incrível! Fiz box braids pela primeira vez e o resultado superou todas as minhas expectativas. Atendimento super cuidadoso e o ambiente é muito acolhedor.",
     rating: 5,
     service: "Box Braids",
   },
   {
     id: 2,
-    name: "Juliana Santos",
-    text: "Já fiz tranças em vários lugares, mas nenhum se compara ao trabalho da Fernanda Talavera. Ela realmente entende de saúde capilar e as tranças duraram muito mais do que eu esperava!",
+    name: "Eduarda",
+    text: "Já fiz tranças em vários lugares, mas nenhum se compara ao trabalho da Fernanda. Ela realmente entende de saúde capilar e as tranças duraram muito mais do que eu esperava!",
     rating: 5,
     service: "Nagô",
   },
   {
     id: 3,
-    name: "Camila Oliveira",
-    text: "Amei minhas goddess braids! Recebi tantos elogios. A Fernanda Talavera é muito talentosa e atenciosa, explica todo o processo e dá dicas de como cuidar das tranças.",
+    name: "Maria Luiza",
+    text: "Amei minhas goddess braids! Recebi tantos elogios. A Fernanda é muito talentosa e atenciosa, explica todo o processo e dá dicas de como cuidar das tranças.",
     rating: 5,
     service: "Goddess Braids",
   },
 ];
 
-const containerVariants = {
+const containerVariants: Variants = {
   hidden: { opacity: 0 },
   visible: {
     opacity: 1,
@@ -38,7 +38,7 @@ const containerVariants = {
   },
 };
 
-const itemVariants = {
+const itemVariants: Variants = {
   hidden: { opacity: 0, y: 30 },
   visible: {
     opacity: 1,
@@ -161,13 +161,13 @@ export function TestimonialsSection() {
 
       {/* Background text */}
       <motion.div
-        className="absolute bottom-0 left-1/2 -translate-x-1/2 text-[12rem] md:text-[20rem] font-bold text-cream/[0.02] pointer-events-none select-none leading-none whitespace-nowrap"
+        className="absolute bottom-0 left-1/2 -translate-x-1/2 text-[10rem] md:text-[20rem] font-serif font-bold text-cream/[0.02] pointer-events-none select-none leading-none"
         initial={{ y: 100, opacity: 0 }}
         whileInView={{ y: 0, opacity: 1 }}
         viewport={{ once: true }}
         transition={{ duration: 1, ease: "easeOut" }}
       >
-        TRANÇAS
+        Fernanda
       </motion.div>
     </section>
   );
