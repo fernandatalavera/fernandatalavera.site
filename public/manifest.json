@@ -18,9 +18,9 @@
       "url": "/agendar",
       "icons": [
         {
-          "src": "/logo.svg",
+          "src": "/icon-192x192.png",
           "sizes": "192x192",
-          "type": "image/svg+xml"
+          "type": "image/png"
         }
       ]
     },
@@ -31,23 +31,25 @@
       "url": "/trancas",
       "icons": [
         {
-          "src": "/logo.svg",
+          "src": "/icon-192x192.png",
           "sizes": "192x192",
-          "type": "image/svg+xml"
+          "type": "image/png"
         }
       ]
     }
   ],
   "icons": [
     {
-      "src": "/logo.svg",
+      "src": "/icon-192x192.png",
       "sizes": "192x192",
-      "type": "image/svg+xml"
+      "type": "image/png",
+      "purpose": "any"
     },
     {
-      "src": "/logo.svg",
+      "src": "/icon-512x512.png",
       "sizes": "512x512",
-      "type": "image/svg+xml"
+      "type": "image/png",
+      "purpose": "any"
     }
   ]
 }

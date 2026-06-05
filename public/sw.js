@@ -1,5 +1,14 @@
-const CACHE_NAME = "trancas-static-v2";
-const PRECACHE_URLS = ["/", "/manifest.json", "/logo.svg"];
+const CACHE_NAME = "trancas-static-v3";
+const PRECACHE_URLS = [
+  "/",
+  "/manifest.json",
+  "/logo.svg",
+  "/favicon.ico",
+  "/favicon-32x32.png",
+  "/apple-icon.png",
+  "/icon-192x192.png",
+  "/icon-512x512.png",
+];
 const STATIC_ASSET_PATTERN =
   /\.(?:avif|webp|png|jpg|jpeg|svg|css|js|woff2?)$/i;
 

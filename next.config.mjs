@@ -55,6 +55,26 @@ const nextConfig = {
         headers: longTermCache,
       },
       {
+        source: "/favicon.ico",
+        headers: longTermCache,
+      },
+      {
+        source: "/favicon-32x32.png",
+        headers: longTermCache,
+      },
+      {
+        source: "/apple-icon.png",
+        headers: longTermCache,
+      },
+      {
+        source: "/icon-192x192.png",
+        headers: longTermCache,
+      },
+      {
+        source: "/icon-512x512.png",
+        headers: longTermCache,
+      },
+      {
         source: "/sitemap.xml",
         headers: [
           {
