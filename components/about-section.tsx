@@ -47,8 +47,9 @@ export function AboutSection() {
               <div className="relative w-full h-[500px] rounded-3xl overflow-hidden shadow-xl">
                 <Image
                   src="/images/braider-portrait.jpg"
-                  alt="Fernanda Talavera - Trancista Profissional"
+                  alt="Fernanda Talavera, trancista profissional e hair braider no Rio de Janeiro"
                   fill
+                  sizes="(min-width: 1024px) 50vw, 100vw"
                   className="object-cover"
                 />
               </div>

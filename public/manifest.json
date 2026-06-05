@@ -1,11 +1,43 @@
 {
-  "name": "Fernanda Talavera — Tranças",
+  "name": "Fernanda Talavera — Trancista no Rio de Janeiro",
   "short_name": "Talavera",
-  "description": "Especialista em tranças — agende seu horário.",
+  "description": "Fernanda Talavera é trancista profissional e hair braider no Rio de Janeiro, especializada em box braids, knotless braids, nagô, cornrows e tranças afro.",
   "start_url": "/",
+  "scope": "/",
   "display": "standalone",
+  "lang": "pt-BR",
+  "dir": "ltr",
+  "categories": ["beauty", "lifestyle", "business"],
   "background_color": "#F7EFE6",
   "theme_color": "#B47850",
+  "shortcuts": [
+    {
+      "name": "Agendar Horário",
+      "short_name": "Agendar",
+      "description": "Agende tranças com Fernanda Talavera pelo WhatsApp.",
+      "url": "/agendar",
+      "icons": [
+        {
+          "src": "/logo.svg",
+          "sizes": "192x192",
+          "type": "image/svg+xml"
+        }
+      ]
+    },
+    {
+      "name": "Serviços de Tranças",
+      "short_name": "Tranças",
+      "description": "Veja box braids, knotless, boho, nagô, cornrows e cuidados.",
+      "url": "/trancas",
+      "icons": [
+        {
+          "src": "/logo.svg",
+          "sizes": "192x192",
+          "type": "image/svg+xml"
+        }
+      ]
+    }
+  ],
   "icons": [
     {
       "src": "/logo.svg",

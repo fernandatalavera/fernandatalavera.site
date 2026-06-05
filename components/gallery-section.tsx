@@ -15,7 +15,6 @@ import {
   ChevronRight,
   Clock,
   Calendar,
-  MessageCircle,
 } from "lucide-react";
 
 const braidsData = [
@@ -157,13 +156,6 @@ export function GallerySection() {
   const nextBraid = () => paginate(1);
   const prevBraid = () => paginate(-1);
 
-  const openAgendamento = (braidName: string) => {
-    const message = encodeURIComponent(
-      `Olá! Gostaria de agendar ${braidName}. Poderia me informar os horários disponíveis?`,
-    );
-    window.open(`https://wa.me/5511999999999?text=${message}`, "_blank");
-  };
-
   return (
     <section id="catalogo" className="relative py-16 bg-beige overflow-hidden">
       <motion.div
@@ -239,8 +231,9 @@ export function GallerySection() {
                     >
                       <Image
                         src={currentBraid.image || "/placeholder.svg"}
-                        alt={currentBraid.name}
+                        alt={`${currentBraid.name} por Fernanda Talavera, trancista no Rio de Janeiro`}
                         fill
+                        sizes="(min-width: 768px) 360px, 100vw"
                         className="object-cover"
                       />
                       <div className="absolute inset-0 bg-gradient-to-t from-deep-brown/30 to-transparent" />

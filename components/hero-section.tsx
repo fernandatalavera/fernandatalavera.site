@@ -283,8 +283,9 @@ export function HeroSection() {
                 <div className="relative w-[320px] h-[420px] md:w-[400px] md:h-[520px] rounded-3xl overflow-hidden shadow-2xl">
                   <Image
                     src="/images/hero-braids.jpg"
-                    alt="Mulher com tranças elegantes"
+                    alt="Tranças elegantes feitas por Fernanda Talavera, trancista no Rio de Janeiro"
                     fill
+                    sizes="(min-width: 768px) 400px, 320px"
                     className="object-cover"
                     priority
                   />

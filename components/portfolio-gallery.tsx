@@ -35,7 +35,7 @@ function PortfolioCard({ post }: { post: PortfolioItem }) {
     <div className="relative w-48 sm:w-56 aspect-square rounded-2xl overflow-hidden group cursor-pointer flex-shrink-0 border border-[#C4A77D]/10 bg-[#100c08] transition-transform duration-500 ease-out hover:scale-[1.04]">
       <Image
         src={post.image || "/placeholder.svg"}
-        alt={post.style}
+        alt={`${post.style} no portfólio de Fernanda Talavera`}
         fill
         sizes="224px"
         className="object-cover grayscale group-hover:grayscale-0 transition-all duration-500"

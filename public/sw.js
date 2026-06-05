@@ -1,5 +1,7 @@
-const CACHE_NAME = "tranças-static-v1";
+const CACHE_NAME = "trancas-static-v2";
 const PRECACHE_URLS = ["/", "/manifest.json", "/logo.svg"];
+const STATIC_ASSET_PATTERN =
+  /\.(?:avif|webp|png|jpg|jpeg|svg|css|js|woff2?)$/i;
 
 self.addEventListener("install", (event) => {
   event.waitUntil(
@@ -23,6 +25,26 @@ self.addEventListener("activate", (event) => {
 
 self.addEventListener("fetch", (event) => {
   if (event.request.method !== "GET") return;
+
+  const requestUrl = new URL(event.request.url);
+  if (requestUrl.origin !== self.location.origin) return;
+
+  if (event.request.mode === "navigate") {
+    event.respondWith(
+      fetch(event.request)
+        .then((response) => {
+          const responseClone = response.clone();
+          caches.open(CACHE_NAME).then((cache) => {
+            cache.put(event.request, responseClone);
+          });
+          return response;
+        })
+        .catch(() => caches.match(event.request).then((cached) => cached || caches.match("/"))),
+    );
+    return;
+  }
+
+  if (!STATIC_ASSET_PATTERN.test(requestUrl.pathname)) return;
 
   event.respondWith(
     caches.match(event.request).then((cached) => {
