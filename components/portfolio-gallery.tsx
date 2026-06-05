@@ -24,8 +24,9 @@ const portfolioImages = [
   { image: "/images/gallery/work-3.jpg", likes: "3.2k", style: "Goddess Locs" },
 ];
 
-const rowOne = portfolioImages.slice(0, 5);
-const rowTwo = portfolioImages.slice(4);
+const rowOne = portfolioImages.slice(0, 6);
+const rowTwo = [...rowOne.slice(3), ...rowOne.slice(0, 3)];
+const marqueeCopies = 4;
 
 type PortfolioItem = (typeof portfolioImages)[number];
 
@@ -69,10 +70,18 @@ function MarqueeRow({
         className={`marquee-track gap-6 sm:gap-8 pr-6 sm:pr-8 ${
           direction === "rtl" ? "marquee-track--rtl" : "marquee-track--ltr"
         }`}
+        style={{
+          animationName: direction === "rtl" ? "marquee-reverse" : "marquee",
+          animationDuration: "60s",
+          animationTimingFunction: "linear",
+          animationIterationCount: "infinite",
+        }}
       >
-        {[...items, ...items].map((post, index) => (
-          <PortfolioCard key={`${post.style}-${index}`} post={post} />
-        ))}
+        {Array.from({ length: marqueeCopies }).flatMap((_, copy) =>
+          items.map((post, index) => (
+            <PortfolioCard key={`${copy}-${post.style}-${index}`} post={post} />
+          )),
+        )}
       </div>
     </div>
   );

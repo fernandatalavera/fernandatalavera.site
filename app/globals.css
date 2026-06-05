@@ -292,13 +292,6 @@ body::-webkit-scrollbar {
   animation-play-state: paused;
 }
 
-@media (prefers-reduced-motion: reduce) {
-  .marquee-track--ltr,
-  .marquee-track--rtl {
-    animation: none;
-  }
-}
-
 .noise-overlay::before {
   content: "";
   position: absolute;
