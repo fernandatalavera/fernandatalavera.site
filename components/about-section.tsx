@@ -5,9 +5,9 @@ import Image from "next/image";
 import { Heart, Award, Users } from "lucide-react";
 
 const stats = [
-  { icon: Heart, value: "500+", label: "Clientes Felizes" },
+  { icon: Heart, value: "100+", label: "Clientes Felizes" },
   { icon: Award, value: "4", label: "Anos de Experiência" },
-  { icon: Users, value: "50+", label: "Estilos Únicos" },
+  { icon: Users, value: "30+", label: "Estilos Únicos" },
 ];
 
 export function AboutSection() {
